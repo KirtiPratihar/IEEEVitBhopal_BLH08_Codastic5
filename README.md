@@ -8,10 +8,9 @@ Codastic5
 TeamName
 
 ## Team Members
-- Member1
-- Member2
-- Member3
-- Member4
+1)Kirti Pratihar
+2)Uditya Narayan Tiwari
+3)Aditya Roy
 
 ## Project Description
 Provide a brief description of the project here. Include the purpose of the project, the problem it solves, and any important details that give a clear understanding of what the project is about.
