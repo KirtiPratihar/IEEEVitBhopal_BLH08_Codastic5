@@ -5,7 +5,7 @@
 TeamName_ProjectName
 Codastic5
 ## Team Name
-TeamName
+Codastic5
 
 ## Team Members
 1)Kirti Pratihar
