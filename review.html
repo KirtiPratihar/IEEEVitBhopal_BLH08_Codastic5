@@ -7,14 +7,20 @@
     <style>
         body {
             font-family: 'Arial', sans-serif;
-            margin: 0;
-            padding: 0;
+            margin: 10px;
+            padding: 10px;
             background-color: #f4f4f4;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
             min-height: 100vh;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .dark-mode {
+            background-color: #333;
+            color: #f4f4f4;
         }
 
         .container {
@@ -24,12 +30,17 @@
             box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
             max-width: 600px;
             width: 100%;
+            transition: background-color 0.3s;
+        }
+
+        .dark-mode .container {
+            background-color: #444;
         }
 
         h2 {
             text-align: center;
             margin-bottom: 20px;
-            color: #333;
+            color: inherit;
         }
 
         .review-form {
@@ -43,6 +54,15 @@
             border: 1px solid #ddd;
             border-radius: 5px;
             font-size: 16px;
+            background-color: #fff;
+            color: #333;
+            transition: background-color 0.3s, color 0.3s, border 0.3s;
+        }
+
+        .dark-mode input, .dark-mode textarea {
+            background-color: #555;
+            color: #fff;
+            border: 1px solid #666;
         }
 
         textarea {
@@ -86,6 +106,10 @@
             background-color: #45a049;
         }
 
+        .dark-mode .submit-button {
+            background-color: #45a049;
+        }
+
         .reviews {
             margin-top: 30px;
         }
@@ -95,6 +119,12 @@
             padding: 15px;
             border-radius: 5px;
             margin-bottom: 15px;
+            transition: background-color 0.3s, border 0.3s;
+        }
+
+        .dark-mode .review {
+            background-color: #555;
+            border: 1px solid #666;
         }
 
         .review-header {
@@ -105,7 +135,7 @@
 
         .review-header h4 {
             margin: 0;
-            color: #333;
+            color: inherit;
         }
 
         .review-header .timestamp {
@@ -126,9 +156,27 @@
             height: auto;
             border-radius: 5px;
         }
+
+        .toggle-dark-mode {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .toggle-dark-mode:hover {
+            background-color: #45a049;
+        }
     </style>
 </head>
 <body>
+    <button class="toggle-dark-mode" onclick="toggleDarkMode()">Toggle Dark Mode</button>
     <div class="container">
         <h2>Leave a Review</h2>
         <form class="review-form">
@@ -142,6 +190,10 @@
                 <label for="upload-video">Upload Video</label>
                 <input type="file" id="upload-video" accept="video/*">
             </div>
+            <div class="upload-area">
+                <label for="upload-audio">Upload Audio</label>
+                <input type="file" id="upload-audio" accept="audio/*">
+            </div>
             <button type="submit" class="submit-button">Submit Review</button>
         </form>
 
@@ -149,19 +201,19 @@
             <h2>Recent Reviews</h2>
             <div class="review">
                 <div class="review-header">
-                    <h4>John Doe</h4>
+                    <h4>Priya Tyagi</h4>
                     <span class="timestamp">2023-12-20</span>
                 </div>
                 <div class="review-content">
                     <p>This is a great product! I highly recommend it.</p>
                 </div>
                 <div class="media">
-                    <img src="https://placehold.co/200x150" alt="Review Image">
+                    <img src="padimg.jpg" alt="Review Image">
                 </div>
             </div>
             <div class="review">
                 <div class="review-header">
-                    <h4>Jane Smith</h4>
+                    <h4>Naina Sharma</h4>
                     <span class="timestamp">2023-12-15</span>
                 </div>
                 <div class="review-content">
@@ -178,6 +230,10 @@
     </div>
 
     <script>
+        function toggleDarkMode() {
+            document.body.classList.toggle('dark-mode');
+        }
+
         const form = document.querySelector('form');
         const reviewsContainer = document.querySelector('.reviews');
 
