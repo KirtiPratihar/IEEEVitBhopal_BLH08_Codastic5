@@ -1,5 +1,5 @@
 # IEEEVitBhopal_BLH08_Codastic5
-# TeamName_ProjectName
+# Codastic5_ProjectName
 
 ## Project Title
 TeamName_ProjectName
