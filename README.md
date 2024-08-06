@@ -2,7 +2,7 @@
 # Codastic5_ProjectName
 
 ## Project Title
-TeamName_ProjectName
+TeamName_Hygiene_in_Rural_Area
 Codastic5
 ## Team Name
 Codastic5
@@ -40,7 +40,7 @@ Provide a brief description of the project here. Include the purpose of the proj
 3. [Add any specific usage instructions here, such as navigating the UI, performing tasks, etc.]
 
 ## Theme Fit
-Explain how the project fits the chosen theme. Provide examples and highlight any specific features or functionalities that align with the theme.
+
 
 ## Future Enhancements
 - Enhancement1: Description of the planned enhancement.
