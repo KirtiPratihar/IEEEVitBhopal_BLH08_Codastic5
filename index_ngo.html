@@ -1,0 +1,55 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Donate for a Cause</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#ngos">NGOs</a></li>
+                <li><a href="#donate-pads">Donate Pads</a></li>
+                <li><a href="#donate-funds">Donate Funds</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section id="ngos">
+            <h2>NGOs</h2>
+            <ul>
+                <!-- List of NGOs will be generated dynamically -->
+                <li>NGO 1</li>
+                <li>NGO 2</li>
+                <li>NGO 3</li>
+            </ul>
+        </section>
+        <section id="donate-pads">
+            <h2>Donate Pads</h2>
+            <form>
+                <label for="pad-quantity">Quantity:</label>
+                <input type="number" id="pad-quantity" name="pad-quantity">
+                <button>Donate Pads</button>
+            </form>
+        </section>
+        <section id="donate-funds">
+            <h2>Donate Funds</h2>
+            <form>
+                <label for="fund-amount">Amount:</label>
+                <input type="number" id="fund-amount" name="fund-amount">
+                <button>Donate Funds</button>
+                <div class="payment-options">
+                    <h3>Payment Options</h3>
+                    <ul>
+                        <li><a href="#"><i class="fa fa-credit-card"></i> UPI</a></li>
+                        <li><a href="#"><i class="fa fa-wallet"></i> Wallet</a></li>
+                    </ul>
+                </div>
+            </form>
+        </section>
+    </main>
+</body>
+</html>

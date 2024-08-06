@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leave a Review</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            width: 100%;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .review-form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        input, textarea {
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        textarea {
+            min-height: 100px;
+        }
+
+        .upload-area {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .upload-area label {
+            cursor: pointer;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: #fff;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .upload-area label:hover {
+            background-color: #45a049;
+        }
+
+        input[type="file"] {
+            display: none;
+        }
+
+        .submit-button {
+            background-color: #4CAF50;
+            color: #fff;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .submit-button:hover {
+            background-color: #45a049;
+        }
+
+        .reviews {
+            margin-top: 30px;
+        }
+
+        .review {
+            border: 1px solid #ddd;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 15px;
+        }
+
+        .review-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .review-header h4 {
+            margin: 0;
+            color: #333;
+        }
+
+        .review-header .timestamp {
+            color: #777;
+            font-size: 14px;
+        }
+
+        .review-content {
+            margin-top: 10px;
+        }
+
+        .media {
+            margin-top: 10px;
+        }
+
+        .media img, .media video {
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Leave a Review</h2>
+        <form class="review-form">
+            <input type="text" placeholder="Your Name" required>
+            <textarea placeholder="Your Review" required></textarea>
+            <div class="upload-area">
+                <label for="upload-image">Upload Image</label>
+                <input type="file" id="upload-image" accept="image/*">
+            </div>
+            <div class="upload-area">
+                <label for="upload-video">Upload Video</label>
+                <input type="file" id="upload-video" accept="video/*">
+            </div>
+            <button type="submit" class="submit-button">Submit Review</button>
+        </form>
+
+        <div class="reviews">
+            <h2>Recent Reviews</h2>
+            <div class="review">
+                <div class="review-header">
+                    <h4>John Doe</h4>
+                    <span class="timestamp">2023-12-20</span>
+                </div>
+                <div class="review-content">
+                    <p>This is a great product! I highly recommend it.</p>
+                </div>
+                <div class="media">
+                    <img src="https://placehold.co/200x150" alt="Review Image">
+                </div>
+            </div>
+            <div class="review">
+                <div class="review-header">
+                    <h4>Jane Smith</h4>
+                    <span class="timestamp">2023-12-15</span>
+                </div>
+                <div class="review-content">
+                    <p>I'm really impressed with the quality of this service.</p>
+                </div>
+                <div class="media">
+                    <video controls width="320" height="240">
+                        <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const form = document.querySelector('form');
+        const reviewsContainer = document.querySelector('.reviews');
+
+        form.addEventListener('submit', (event) => {
+            event.preventDefault();
+
+            const name = form.querySelector('input[type="text"]').value;
+            const reviewText = form.querySelector('textarea').value;
+            const imageFile = form.querySelector('#upload-image').files[0];
+            const videoFile = form.querySelector('#upload-video').files[0];
+
+            const timestamp = new Date().toLocaleDateString();
+
+            const reviewElement = document.createElement('div');
+            reviewElement.classList.add('review');
+
+            const reviewHeader = document.createElement('div');
+            reviewHeader.classList.add('review-header');
+
+            const nameElement = document.createElement('h4');
+            nameElement.textContent = name;
+
+            const timestampElement = document.createElement('span');
+            timestampElement.classList.add('timestamp');
+            timestampElement.textContent = timestamp;
+
+            reviewHeader.appendChild(nameElement);
+            reviewHeader.appendChild(timestampElement);
+
+            const reviewContent = document.createElement('div');
+            reviewContent.classList.add('review-content');
+            reviewContent.innerHTML = `<p>${reviewText}</p>`;
+
+            const mediaContainer = document.createElement('div');
+            mediaContainer.classList.add('media');
+
+            if (imageFile) {
+                const imageElement = document.createElement('img');
+                const reader = new FileReader();
+                reader.onload = (e) => {
+                    imageElement.src = e.target.result;
+                };
+                reader.readAsDataURL(imageFile);
+                mediaContainer.appendChild(imageElement);
+            }
+
+            if (videoFile) {
+                const videoElement = document.createElement('video');
+                videoElement.controls = true;
+                videoElement.width = 320;
+                videoElement.height = 240;
+                const videoSource = document.createElement('source');
+                videoSource.src = URL.createObjectURL(videoFile);
+                videoSource.type = 'video/mp4';
+                videoElement.appendChild(videoSource);
+                mediaContainer.appendChild(videoElement);
+            }
+
+            reviewElement.appendChild(reviewHeader);
+            reviewElement.appendChild(reviewContent);
+            reviewElement.appendChild(mediaContainer);
+
+            reviewsContainer.insertBefore(reviewElement, reviewsContainer.firstChild);
+
+            form.reset();
+        });
+    </script>
+</body>
+</html>

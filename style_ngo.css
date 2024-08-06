@@ -1,0 +1,172 @@
+/* styles.css */
+
+/* Global Styles */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  body {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    color: #333;
+    background-color: #f9f9f9;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: #212121;
+  }
+  
+  a {
+    text-decoration: none;
+    color: #337ab7;
+    transition: color 0.2s ease;
+  }
+  
+  a:hover {
+    color: #23527c;
+  }
+  
+  /* Header Styles */
+  
+  header {
+    background-color: #333;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  header nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  header nav li {
+    margin-right: 20px;
+  }
+  
+  header nav a {
+    color: #fff;
+    transition: color 0.2s ease;
+  }
+  
+  header nav a:hover {
+    color: #ccc;
+  }
+  
+  /* Main Styles */
+  
+  main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px;
+  }
+  
+  section {
+    background-color: #fff;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+  }
+  
+  h2 {
+    margin-top: 0;
+    font-size: 24px;
+    font-weight: 700;
+    color: #212121;
+  }
+  
+  /* Form Styles */
+  
+  form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+  }
+  
+  label {
+    margin-bottom: 10px;
+    font-size: 16px;
+    font-weight: 500;
+    color: #333;
+  }
+  
+  input[type="number"] {
+    width: 100%;
+    height: 40px;
+    margin-bottom: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: 500;
+    color: #333;
+  }
+  
+  input[type="number"]:focus {
+    border-color: #337ab7;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  button {
+    width: 100%;
+    height: 40px;
+    background-color: #337ab7;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+  }
+  
+  button:hover {
+    background-color: #23527c;
+  }
+  
+  /* Payment Options Styles */
+  
+  .payment-options {
+    margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .payment-options li {
+    margin-right: 20px;
+    margin-bottom: 10px;
+  }
+  
+  .payment-options a {
+    font-size: 16px;
+    font-weight: 500;
+    color: #337ab7;
+    transition: color 0.2s ease;
+  }
+  
+  .payment-options a:hover {
+    color: #23527c;
+  }
+  
+  .payment-options i {
+    font-size: 24px;
+    margin-right: 10px;
+    color: #337ab7;
+  }
+  
+  .payment-options i:hover {
+    color: #23527c;
+  }
