@@ -3,60 +3,251 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Collaborate with Us</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap">
+    <title>Sanitary Pad Donation Form</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f4f7;
+            padding: 20px;
+            margin: 0;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        .form-container {
+            max-width: 600px;
+            margin: 40px auto;
+            background: #fff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-top: 5px solid #4caf50;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        h2 {
+            text-align: center;
+            color: #4caf50;
+            margin-bottom: 30px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #333;
+            font-weight: bold;
+        }
+        .form-group input, 
+        .form-group select, 
+        .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            box-sizing: border-box;
+            font-size: 16px;
+            background: #f9f9f9;
+            transition: background-color 0.3s, border-color 0.3s;
+        }
+        .form-group input[type="checkbox"] {
+            width: auto;
+        }
+        .form-group .checkbox-label {
+            display: inline;
+            color: #555;
+        }
+        .form-group button {
+            background-color: #4caf50;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+            margin-top: 10px;
+            display: block;
+            width: 100%;
+        }
+        .form-group button:hover {
+            background-color: #45a049;
+        }
+        .form-group input:focus, 
+        .form-group textarea:focus, 
+        .form-group select:focus {
+            border-color: #4caf50;
+            outline: none;
+        }
+        .toggle-button {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background-color: #4caf50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: background-color 0.3s ease;
+        }
+        .toggle-button:hover {
+            background-color: #45a049;
+        }
+        /* Dark Mode Styles */
+        body.dark-mode {
+            background-color: #121212;
+            color: #e0e0e0;
+        }
+        body.dark-mode .form-container {
+            background-color: #1e1e1e;
+            color: #e0e0e0;
+        }
+        body.dark-mode h2 {
+            color: #81c784;
+        }
+        body.dark-mode .form-group label {
+            color: #e0e0e0;
+        }
+        body.dark-mode .form-group input, 
+        body.dark-mode .form-group select, 
+        body.dark-mode .form-group textarea {
+            background-color: #333;
+            color: #e0e0e0;
+            border-color: #444;
+        }
+        body.dark-mode .form-group input:focus, 
+        body.dark-mode .form-group textarea:focus, 
+        body.dark-mode .form-group select:focus {
+            border-color: #81c784;
+        }
+        body.dark-mode .toggle-button {
+            background-color: #81c784;
+        }
+        body.dark-mode .toggle-button:hover {
+            background-color: #66bb6a;
+        }
+    </style>
 </head>
 <body>
-    <header>
-        <nav>
-            <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">About</a></li>
-                <li><a href="#">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
-    <main>
-        <section class="hero">
-            <h1>Collaborate with Us</h1>
-            <p>NGOs and individuals can collaborate with us to donate pads or funds to support our cause.</p>
-            <button class="cta">Donate Now</button>
-        </section>
-        <section class="donation-form">
-            <h2>Donation Form</h2>
-            <form id="donation-form">
-                <div class="form-group">
-                    <label for="name">Name:</label>
-                    <input type="text" id="name" name="name" required>
-                </div>
-                <div class="form-group">
-                    <label for="email">Email:</label>
-                    <input type="email" id="email" name="email" required>
-                </div>
-                <div class="form-group">
-                    <label for="phone">Phone:</label>
-                    <input type="tel" id="phone" name="phone" required>
-                </div>
-                <div class="form-group">
-                    <label for="organization">Organization (if applicable):</label>
-                    <input type="text" id="organization" name="organization">
-                </div>
-                <div class="form-group">
-                    <label for="donation-amount">Donation Amount:</label>
-                    <input type="number" id="donation-amount" name="donation-amount" required>
-                </div>
-                <button class="cta" id="submit-btn">Submit</button>
-            </form>
-        </section>
-        <section class="payment-gateway">
-            <div id="payment-gateway"></div>
-        </section>
-    </main>
-    <footer>
-        <p>&copy; 2023 Pad Donation Website</p>
-    </footer>
-    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
-    <script src="script.js"></script>
+    <button class="toggle-button" onclick="toggleDarkMode()">Toggle Dark Mode</button>
+    <div class="form-container">
+        <h2>Sanitary Pad Donation Form</h2>
+        <form action="#" method="post">
+            <!-- Donor Information -->
+            <div class="form-group">
+                <label for="name">Full Name</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="phone">Phone Number</label>
+                <input type="tel" id="phone" name="phone" required>
+            </div>
+            <div class="form-group">
+                <label for="address">Mailing Address</label>
+                <textarea id="address" name="address" rows="3"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="organization">Organization Name (if applicable)</label>
+                <input type="text" id="organization" name="organization">
+            </div>
+            <div class="form-group">
+                <label for="contact-method">Preferred Contact Method</label>
+                <select id="contact-method" name="contact-method">
+                    <option value="email">Email</option>
+                    <option value="phone">Phone</option>
+                </select>
+            </div>
+
+            <!-- Donation Details -->
+            <div class="form-group">
+                <label for="donation-type">Type of Donation</label>
+                <select id="donation-type" name="donation-type">
+                    <option value="products">Products</option>
+                    <option value="monetary">Monetary</option>
+                    <option value="both">Both</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="product-details">Product Details</label>
+                <textarea id="product-details" name="product-details" placeholder="Brand, Quantity, Size/Type, etc." rows="3"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="donation-amount">Monetary Donation Amount (if applicable)</label>
+                <input type="number" id="donation-amount" name="donation-amount" min="0" step="0.01">
+            </div>
+
+            <!-- Delivery/Pickup Information -->
+            <div class="form-group">
+                <label for="delivery-method">Preferred Delivery Method</label>
+                <select id="delivery-method" name="delivery-method">
+                    <option value="drop-off">Drop-off</option>
+                    <option value="pickup">Pickup</option>
+                    <option value="shipping">Shipping</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="drop-off-location">Drop-off Location</label>
+                <input type="text" id="drop-off-location" name="drop-off-location">
+            </div>
+            <div class="form-group">
+                <label for="pickup-address">Pickup Address (if pickup service is provided)</label>
+                <textarea id="pickup-address" name="pickup-address" rows="3"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="pickup-date">Preferred Pickup Date and Time</label>
+                <input type="datetime-local" id="pickup-date" name="pickup-date">
+            </div>
+
+            <!-- Donation Purpose -->
+            <div class="form-group">
+                <label for="donation-purpose">Purpose of Donation</label>
+                <textarea id="donation-purpose" name="donation-purpose" placeholder="General support, specific campaign, etc." rows="3"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="additional-notes">Additional Notes</label>
+                <textarea id="additional-notes" name="additional-notes" rows="3"></textarea>
+            </div>
+
+            <!-- Consent and Acknowledgment -->
+            <div class="form-group">
+                <input type="checkbox" id="terms" name="terms" required>
+                <label class="checkbox-label" for="terms">I agree to the terms and conditions.</label>
+            </div>
+            <div class="form-group">
+                <input type="checkbox" id="public-acknowledgment" name="public-acknowledgment">
+                <label class="checkbox-label" for="public-acknowledgment">I consent to public acknowledgment.</label>
+            </div>
+            <div class="form-group">
+                <input type="checkbox" id="tax-receipt" name="tax-receipt">
+                <label class="checkbox-label" for="tax-receipt">Request a tax receipt.</label>
+            </div>
+
+            <!-- Additional Information -->
+            <div class="form-group">
+                <label for="how-heard">How Did You Hear About Us?</label>
+                <input type="text" id="how-heard" name="how-heard">
+            </div>
+            <div class="form-group">
+                <input type="checkbox" id="newsletter" name="newsletter">
+                <label class="checkbox-label" for="newsletter">Would you like to stay updated? (Newsletter)</label>
+            </div>
+
+            <!-- Submit Button -->
+            <div class="form-group">
+                <button type="submit">Submit Donation</button>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        function toggleDarkMode() {
+            document.body.classList.toggle('dark-mode');
+        }
+    </script>
 </body>
 </html>
