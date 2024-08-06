@@ -4,9 +4,137 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aapki Sakhi</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,500,700&display=swap">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .dark-mode {
+            background-color: #000;
+            color: #f4f4f4;
+        }
+
+        header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            background-color: #4CAF50;
+            transition: background-color 0.3s;
+            position: relative;
+        }
+
+        .dark-mode header {
+            background-color: #129310;
+        }
+
+        .logo img {
+            height: 50px;
+            margin-right: 20px;
+        }
+
+        h1 {
+            font-size: 2em;
+            margin: 0;
+            text-align: center;
+            color: white;
+        }
+
+        main {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            background-color: #fff;
+            transition: background-color 0.3s, box-shadow 0.3s;
+        }
+
+        .dark-mode main {
+            background-color: #111;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+
+        section {
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        h2 {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+        }
+
+        p {
+            margin: 0 0 20px;
+        }
+
+        a button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            text-transform: uppercase;
+            font-weight: 500;
+            display: block;
+            margin: 0 auto;
+        }
+
+        a button:hover {
+            background-color: #45a049;
+        }
+
+        .dark-mode a button {
+            background-color: #333;
+        }
+
+        footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            transition: background-color 0.3s;
+        }
+
+        .dark-mode footer {
+            background-color: #129310;
+        }
+
+        .toggle-dark-mode {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            z-index: 1000;
+        }
+
+        .toggle-dark-mode:hover {
+            background-color: #45a049;
+        }
+
+        .dark-mode .toggle-dark-mode {
+            background-color: #333;
+            color: white;
+        }
+    </style>
 </head>
 <body>
+    <button class="toggle-dark-mode" onclick="toggleDarkMode()">Toggle Dark Mode</button>
     <header>
         <div class="logo">
             <img src="logo.png" alt="Pad Donation Website Logo">
@@ -17,23 +145,36 @@
         <section id="collaborate">
             <h2>Collaborate with us</h2>
             <p>NGOs and individuals can collaborate with us to donate pads or funds to support our cause.</p>
-            <button>Collaborate Now</button>
+            <a href="code.collborate.html">
+                <button>Collaborate Now</button>
+            </a>
         </section>
         <section id="request-pad">
             <h2>Request a Pad</h2>
             <p>Girls in need of pads can request one here.</p>
-            <button>Request a Pad</button>
+            <a href="code.needapad.html">
+                <button>Request a Pad</button>
+            </a>
         </section>
         <section id="review">
             <h2>Leave a Review</h2>
             <p>Share your experience with our organization and help us improve.</p>
-            <a href="" target="_blank">
+            <a href="review.html" target="_blank">
                 <button>Leave a Review</button>
-              </a>
+            </a>
+        </section>
+        <section id="chat">
+            <h2>Chat with Us</h2>
+            <iframe style="width: 400px; height: 200px;" src="https://app.fastbots.ai/embed/clzisykwl07pynibcdfpzfee7"></iframe>
         </section>
     </main>
     <footer>
         <p>&copy; 2024 Pad Donation Website</p>
     </footer>
+    <script>
+        function toggleDarkMode() {
+            document.body.classList.toggle('dark-mode');
+        }
+    </script>
 </body>
 </html>
