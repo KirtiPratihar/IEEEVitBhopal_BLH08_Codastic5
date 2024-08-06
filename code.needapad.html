@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Request Sanitary Pads</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            transition: background-color 0.5s ease-in-out;
+        }
+        
+        .container {
+            max-width: 600px;
+            margin: 40px auto;
+            padding: 20px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.5s ease-in-out;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        input, textarea, select {
+            width: 95%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        input[type="number"] {
+            width: 50px;
+        }
+
+        button[type="submit"] {
+            background-color: #4CAF50;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #45a049;
+        }
+
+        /* Night mode styles */
+        body.night-mode {
+            background-color: #000;
+        }
+
+        .container.night-mode {
+            background-color: #333;
+            border-color: #555;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .night-mode h2, .night-mode label {
+            color: #fff;
+        }
+
+        .night-mode input, .night-mode textarea, .night-mode select {
+            border-color: #555;
+            color: #000;
+            background-color: #ebebeb;
+        }
+
+        .night-mode button[type="submit"] {
+            background-color: #17892c;
+            color: #000;
+        }
+
+        .night-mode button[type="submit"]:hover {
+            background-color: #31782b;
+        }
+
+        #night-mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background-color: #2196F3;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        #night-mode-toggle:hover {
+            background-color: #1976D2;
+        }
+    </style>
+    
+</head>
+<body>
+    <button id="night-mode-toggle" onclick="toggleNightMode()">
+        <i class="fas fa-moon" style="margin-right: 10px;"></i>Toggle Night Mode
+    </button>
+    <div class="container">
+        <h2>Request Sanitary Pads</h2>
+        <form>
+            <label for="name">Name:</label>
+            <input type="text" id="name" required>
+
+            <label for="address">Address:</label>
+            <textarea id="address" required></textarea>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email">
+
+            <label for="phone">Phone Number:</label>
+            <input type="tel" id="phone">
+
+            <label for="pad-type">Type of Pad:</label>
+            <select id="pad-type" required>
+                <option value="">Select Pad Type</option>
+                <option value="Regular">Regular</option>
+                <option value="Large">Large</option>
+                <option value="Extra Large">Extra Large</option>
+                <option value="Night Time">Night Time</option>
+            </select>
+            <label for="num-pads">Number of Pads Needed:</label>
+            <input type="number" id="num-pads" min="1" required>
+
+            <button type="submit">Request Pads</button>
+        </form>
+    </div>
+    <script>
+        function toggleNightMode() {
+            document.body.classList.toggle("night-mode");
+            document.querySelector(".container").classList.toggle("night-mode");
+        }
+    </script>
